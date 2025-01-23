@@ -178,6 +178,7 @@ const CurrencySwapForm = () => {
                           <Button
                             onClick={() => {
                               handleFromChangeValue(`${balance}`);
+                              form.trigger();
                             }}
                             type="button"
                             variant="link"
