@@ -42,7 +42,7 @@ const CurrencySwapForm = () => {
     const fetchUserAssets = async () => {
       try {
         const response = await getUserAssets();
-       
+
         if (response.data?.length) {
           const assets: Record<string, UserAsset> = {};
           response.data.forEach((item) => {
@@ -70,12 +70,12 @@ const CurrencySwapForm = () => {
   useEffect(() => {
     if (usdValue && toToken) {
       const toValue = formatCurrency(usdValue / toToken.price);
-      updateToValue(`${toValue}`)
+      updateToValue(`${toValue}`);
     }
   }, [toToken]);
 
   const handleSwap = (values: z.infer<typeof formSchema>) => {
-    toast("Swap successful.")
+    toast("Swap successful.");
   };
 
   const handleReverse = () => {
@@ -175,6 +175,7 @@ const CurrencySwapForm = () => {
                       />
                       <div className="text-right flex">
                         <SelectCurrencyDialog
+                          value={fromToken}
                           onChangeValue={(value) => {
                             setFromToken(value);
                           }}
@@ -247,6 +248,7 @@ const CurrencySwapForm = () => {
             <div className="text-right mt-1">
               <label className="text-sm block">&nbsp;</label>
               <SelectCurrencyDialog
+                value={toToken}
                 onChangeValue={(value) => {
                   setToToken(value);
                 }}
