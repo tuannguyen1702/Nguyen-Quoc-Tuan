@@ -13,6 +13,7 @@ I use Vite + React Router to build  React applications
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
 - 📖 [React Router docs](https://reactrouter.com/)
+- UI - [Use Shadcn UI](https://ui.shadcn.com/docs/components/accordion)
 
 ## Getting Started
 
