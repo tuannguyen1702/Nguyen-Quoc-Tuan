@@ -174,6 +174,18 @@ const CurrencySwapForm = () => {
                         }}
                       />
                       <div className="text-right flex">
+                        {!!balance && (
+                          <Button
+                            onClick={() => {
+                              handleFromChangeValue(`${balance}`);
+                            }}
+                            type="button"
+                            variant="link"
+                            className="font-medium text-orange-500 px-2 hover:no-underline hover:text-orange-700"
+                          >
+                            Max
+                          </Button>
+                        )}
                         <SelectCurrencyDialog
                           value={fromToken}
                           onChangeValue={(value) => {
