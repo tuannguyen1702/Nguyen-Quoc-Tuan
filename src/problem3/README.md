@@ -26,7 +26,7 @@
 
 13. **Potential Errors with `prices[balance.currency]`**: There is a risk of errors if `balance.currency` is undefined. This should be handled properly.
 
-14. **balance.amount.toFixed()** is used without specifying the required decimal places
+14. **balance.amount.toFixed()** is used without specifying the required decimal places. We should avoid using toFixed to format numbers as it can produce insignificant trailing zeros (e.g., 1.200). Instead, use the formula: `Math.round(value * (10 ** fractionDigits)) / (10 ** fractionDigits)`
 
 15. **`usdValue` and `formatted` Should Be Processed Together**: `usdValue` and `formatted` values should be handled together, not separately.
 
@@ -35,6 +35,8 @@
 17. **Missing Memoization for `rows`**: Memoize `rows` to prevent unnecessary recalculations on each render.
 
 18. **Overuse of Inline Logic in JSX**: Move logic for `rows` out of JSX for better readability and maintainability.
+
+19. `classes` is not defined.
 
 ## Refactoring Points
 

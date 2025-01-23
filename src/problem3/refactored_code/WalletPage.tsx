@@ -1,5 +1,6 @@
 import { PRIORITY_MAP } from "./consts";
-import { FormattedWalletBalance, WalletBalance } from "./types";
+import { FormattedWalletBalance } from "./types";
+import { formatCurrency } from "./utils";
 
 interface WalletPageProps extends BoxProps {}
 
@@ -16,7 +17,7 @@ const WalletPage: React.FC<WalletPageProps> = (props: WalletPageProps) => {
       if (priority > -99 && balance.amount > 0) {
         updatedBalances.push({
           ...balance,
-          formatted: balance.amount.toFixed(2),
+          formatted: formatCurrency(balance.amount, 2),
           usdValue: (prices[balance.currency] || 0) * balance.amount,
           priority,
         });

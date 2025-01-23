@@ -8,15 +8,15 @@ const WalletList: React.FC<WalletListProps> = (props: WalletListProps) => {
   const { balances, ...rest } = props;
   return (
     <div {...rest}>
-      {balances.map((balance) => {
+      {balances.map((balance) => (
         <WalletRow
           className={classes.row}
-          key={balance.blockchain}
+          key={`${balance.blockchain}_${balance.currency}`}
           amount={balance.amount}
           usdValue={balance.usdValue}
           formattedAmount={balance.formatted}
-        />;
-      })}
+        />
+      ))}
     </div>
   );
 };
